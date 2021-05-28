@@ -1,0 +1,26 @@
+.border2 {
+    border: 1px #ccc solid;
+    border-radius: 4px;
+}
+
+.container-padding {
+    padding: 50px;
+}
+
+.container-margin {
+    margin-top: 40px;
+}
+
+.__centralizar-verticalmente {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.padding-form {
+    padding-right: 0px;
+    padding-left: 0px;
+}
