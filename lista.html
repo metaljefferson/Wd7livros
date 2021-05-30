@@ -14,139 +14,45 @@
 
 <body>
 
-    <div id="app"></div>
+    <div id="app">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col" v-for="item in livros">
+                    <div class="card shadow-sm">
+                        <img v-bind:src="'./img/' + item.capa" alt="" :key="item.capa">
+                        <div class="card-body">
+                            <h2 class="titulo_livro">{{item.titulo_livro}}</h2>
+                            <p class="card-text">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">{{item.texto_livro}}</font>
+                                    <font style="vertical-align: inherit;">Este conteúdo é um pouco mais longo.</font>
+                                </font>
+                            </p>
+
+
+
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Data de lançamento: {{item.ano_lancamento}}</font></font></small>
+                            <div class="btn-group" :class="[(item.status_reserva == 'disponivel' ? 'livro_disponivel' : 'livro_indisponivel')]">
+                                <button type="button" class="btn btn-sm btn-outline-secondary botao_disponivel">Disponivel</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary botao_indisponivel ">Indisponivel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="data.js"></script>
     <script>
         new Vue({
             el: '#app',
-            template: `
-            <div class="container">
-
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-    <div class="col">
-        <div class="card shadow-sm">
-            <img src="./img/51xkKWPnIcL._SX332_BO1,204,203,200_.jpg" alt="">
-            <div class="card-body">
-                <p class="card-text">
-                    <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Quem, além de Neil Gaiman, poderia se tornar cúmplice dos deuses e usar de sua habilidade com as palavras.</font>
-                    <font style="vertical-align: inherit;">Este conteúdo é um pouco mais longo.</font>
-                    </font>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary bg-green"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Disponivel</font></font></button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Indisponivel</font></font></button>
-                </div>
-                    <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2007</font></font></small>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card shadow-sm">
-            <img src="./img/1006574337 (1).png" alt="">
-            <div class="card-body">
-                <p class="card-text">
-                    <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Summit Lake, uma pequena cidade entre montanhas, é esse tipo de lugar, bucólico e com encantadoras casas. </font>
-                    <font style="vertical-align: inherit;">Este conteúdo é um pouco mais longo.</font>
-                    </font>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary bg-green"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Disponivel</font></font></button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Indisponivel</font></font></button>
-                    </div>
-                    <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2011</font></font></small>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card shadow-sm">
-            <img src="./img/1010075897.png" alt="">
-            <div class="card-body">
-                <p class="card-text">
-                    <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Um homem fracassado e atormentado pelos fantasmas do passado. Atolado em dívidas e correndo sérios riscos. </font>
-                    <font style="vertical-align: inherit;">Este conteúdo é um pouco mais longo.</font>
-                    </font>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary bg-green"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Disponivel</font></font></button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Indisponivel</font></font></button>
-                    </div>
-                    <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2003</font></font></small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col">
-        <div class="card shadow-sm">
-            <img src="./img/1010071147.png" alt="">
-            <div class="card-body">
-                <p class="card-text">
-                    <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Celebrando 20 anos como o livro n° 1 em finanças pessoais. A escola prepara as crianças para o mundo real? </font>
-                    <font style="vertical-align: inherit;">Este conteúdo é um pouco mais longo.</font>
-                    </font>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Disponivel</font></font></button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary bg-red"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Indisponivel</font></font></button>
-                    </div>
-                    <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2000</font></font></small>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card shadow-sm">
-            <img src="./img/1008975660.png" alt="">
-            <div class="card-body">
-                <p class="card-text">
-                    <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Durante as férias escolares de 1958, em Derry, pacata cidadezinha do Maine, Bill, Richie, Stan, Mike, Eddie, Ben e Beverly. </font>
-                    <font style="vertical-align: inherit;">Este conteúdo é um pouco mais longo.</font>
-                    </font>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Disponivel</font></font></button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary bg-red"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Indisponivel</font></font></button>
-                    </div>
-                    <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2005</font></font></small>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card shadow-sm">
-            <img src="./img/1011254193.png" alt="A garota do lago">
-
-            <div class="card-body">
-                <p class="card-text">
-                    <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Assassinato e sinais misteriosos em uma trama para fãs de Stranger Things e Stephen King Em 1986, Eddie e os amigos. </font>
-                    <font style="vertical-align: inherit;">Este conteúdo é um pouco mais longo.</font>
-                    </font>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Disponivel</font></font></button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary bg-red"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Indisponivel</font></font></button>
-                    </div>
-                    <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2002</font></font></small>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>`
+            data: {
+                livros
+            },
         })
     </script>
 </body>
